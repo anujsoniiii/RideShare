@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rental Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        header {
+            background-color: white;
+            padding: 15px 30px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 24px;
+            color: #1976D2;
+            padding-left: 10px;
+        }
+        .nav-buttons {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        .nav-buttons a {
+            text-decoration: none;
+            color: black;
+            font-size: 16px;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .nav-buttons a:hover {
+            background-color: #f0f0f0;
+        }
+        .search-section {
+            background: linear-gradient(135deg, #D6EBFF 0%, #FFFFFF 100%);
+            padding: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            height: 400px;
+            position: relative;
+        }
+        .vehicle-select {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .vehicle-select select {
+            font-size: 20px;
+            padding: 12px 18px;
+            border: none;
+            border-radius: 5px;
+            background-color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .vehicle-select select:hover {
+            background-color: #f0f0f0;
+        }
+        .search-box {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            margin-left: 50px;
+        }
+        .search-box h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .search-box select, .search-box input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .search-box input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+        }
+        .search-box button {
+            width: 100%;
+            padding: 12px;
+            background-color: #2e7d32;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .search-box button:hover {
+            background-color: #1b5e20;
+        }
+        .quotes-section {
+            margin-right: 50px;
+            max-width: 350px;
+            text-align: right;
+        }
+        .quotes-section .headline {
+            display: flex;
+            justify-content: flex-end;
+            font-size: 36px;
+            margin-bottom: 10px;
+            white-space: nowrap;
+            color: #1976D2;
+            font-family: 'Poppins', sans-serif;
+        }
+        .quotes-section p {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        .car-images {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .car-images img {
+            width: 70px;
+            height: auto;
+            animation: moveCar 3s infinite ease-in-out;
+        }
+        @keyframes moveCar {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(10px); }
+            100% { transform: translateX(0); }
+        }
+        .vehicles-section {
+            background-color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        .vehicles-section h2 {
+            font-size: 28px;
+            margin-bottom: 30px;
+        }
+        .vehicle-list {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .vehicle-card {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            padding: 20px;
+            text-align: center;
+        }
+        .vehicle-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        .vehicle-card h3 {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+        .vehicle-card p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .vehicle-card button {
+            padding: 10px 20px;
+            background-color: #1976D2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .vehicle-card button:hover {
+            background-color: #1565C0;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="logo">
+        RideShare
+    </div>
+    <div class="nav-buttons">
+        <a href="#home">Home</a>
+        <a href="#become-a-host">Become a Host</a>
+        <a href="#about-us">About Us</a>
+        <a href="#login-signup">Login/Signup</a>
+    </div>
+</header>
+<section class="search-section">
+    <div class="search-box">
+        <h2>
+            <select>
+                <option value="Bhopal">Explore rental cars in Bhopal</option>
+                <option value="Mumbai">Explore rental cars in Mumbai</option>
+                <option value="Delhi">Explore rental cars in Delhi</option>
+                <option value="Bangalore">Explore rental cars in Bangalore</option>
+                <option value="Chennai">Explore rental cars in Chennai</option>
+            </select>
+        </h2>
+        <select name="location">
+            <option value="Bhopal">Location: Bhopal, Madhya Pradesh</option>
+            <option value="Mumbai">Location: Mumbai, Maharashtra</option>
+            <option value="Delhi">Location: Delhi, NCR</option>
+            <option value="Bangalore">Location: Bangalore, Karnataka</option>
+            <option value="Chennai">Location: Chennai, Tamil Nadu</option>
+        </select>
+        <input type="datetime-local">
+        <input type="datetime-local">
+        <label>
+            <input type="checkbox"> Delivery & Pick-up from anywhere
+        </label>
+        <button>SEARCH</button>
+    </div>
+    <div class="vehicle-select">
+        <select id="vehicleType" onchange="redirectToVehiclePage()">
+            <option value="">Select a Vehicle</option>
+            <option value="car">Car</option>
+            <option value="bike">Bike</option>
+            <option value="scooty">Scooty</option>
+        </select>
+    </div>
+    <div class="quotes-section">
+        <div class="headline">
+            RENT RIDE REPEAT
+        </div>
+        <p>Discover the freedom of the open road with our hassle-free rentals!</p>
+        <p>Your journey, your way – book a car today and hit the road!</p>
+        <div class="car-images">
+            <img src="https://img.icons8.com/ios-filled/50/000000/car.png" alt="Car 1">
+            <img src="https://img.icons8.com/ios-filled/50/000000/car.png" alt="Car 2">
+            <img src="https://img.icons8.com/ios-filled/50/000000/car.png" alt="Car 3">
+        </div>
+    </div>
+</section>
+<section class="vehicles-section">
+    <h2>Popular Vehicles</h2>
+    <div class="vehicle-list">
+        <div class="vehicle-card">
+            <img src="SedanHd.jpg" alt="Car">
+            <h3>Sedan Car</h3>
+            <p>Perfect for city drives and long trips</p>
+            <button>Book Now</button>
+        </div>
+        <div class="vehicle-card">
+            <img src="ImageRS2.png" alt="Bike">
+            <h3>Sports Bike</h3>
+            <p>Feel the thrill of the ride</p>
+            <button>Book Now</button>
+        </div>
+        <div class="vehicle-card">
+            <img src="electricScootyImg.webp" alt="Scooty">
+            <h3>Electric Scooty</h3>
+            <p>Easy and eco-friendly commuting</p>
+            <button>Book Now</button>
+        </div>
+    </div>
+</section>
+<script>
+    function redirectToVehiclePage() {
+        const vehicleType = document.getElementById('vehicleType').value;
+        if (vehicleType === 'car') {
+            window.location.href = 'cars.html';
+        } else if (vehicleType === 'bike') {
+            window.location.href = 'bikes.html';
+        } else if (vehicleType === 'scooty') {
+            window.location.href = 'scooty.html';
+        }
+    }
+</script>
+</body>
+</html>

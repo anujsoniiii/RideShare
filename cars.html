@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cars - RideShare</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+header {
+    background-color: white;
+    padding: 15px 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    color: #1976D2;
+    padding-left: 10px;
+}
+.nav-buttons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+.nav-buttons a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+.nav-buttons a:hover {
+    background-color: #f0f0f0;
+}
+.search-section {
+    background: linear-gradient(135deg, #D6EBFF 0%, #FFFFFF 100%);
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 400px;
+    position: relative;
+}
+.vehicle-select {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.vehicle-select select {
+    font-size: 20px;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.vehicle-select select:hover {
+    background-color: #f0f0f0;
+}
+.search-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    margin-left: 50px;
+}
+.search-box h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+.search-box select, .search-box input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+.search-box input[type="checkbox"] {
+    width: auto;
+    margin-right: 10px;
+}
+.search-box button {
+    width: 100%;
+    padding: 12px;
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.search-box button:hover {
+    background-color: #1b5e20;
+}
+.quotes-section {
+    margin-right: 50px;
+    max-width: 350px;
+    text-align: right;
+}
+.quotes-section .headline {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 36px;
+    margin-bottom: 10px;
+    white-space: nowrap;
+    color: #1976D2;
+    font-family: 'Poppins', sans-serif;
+}
+.quotes-section p {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+.car-images {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 10px;
+}
+.car-images img {
+    width: 70px;
+    height: auto;
+    animation: moveCar 3s infinite ease-in-out;
+}
+@keyframes moveCar {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(10px); }
+    100% { transform: translateX(0); }
+}
+.vehicles-section {
+    background-color: white;
+    padding: 40px;
+    text-align: center;
+}
+.vehicles-section h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+.vehicle-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+    gap: 30px;
+    max-width: 900px; /* Limits grid width */
+    margin: 0 auto; /* Centers the grid */
+}
+.vehicle-card {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+}
+.vehicle-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+.vehicle-card h3 {
+    font-size: 20px;
+    margin: 10px 0;
+}
+.vehicle-card p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 15px;
+}
+.vehicle-card button {
+    padding: 10px 20px;
+    background-color: #1976D2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.vehicle-card button:hover {
+    background-color: #1565C0;
+}
+@media (max-width: 768px) {
+    .vehicle-list {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller screens */
+    }
+}
+@media (max-width: 480px) {
+    .vehicle-list {
+        grid-template-columns: 1fr; /* 1 column on very small screens */
+    }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">RideShare</div>
+        <div class="nav-buttons">
+            <a href="index.html">Home</a>
+            <a href="#become-a-host">Become a Host</a>
+            <a href="#about-us">About Us</a>
+            <a href="#login-signup">Login/Signup</a>
+        </div>
+    </header>
+    <section class="vehicles-section">
+        <h2>Available Cars</h2>
+        <div class="vehicle-list">
+            <div class="vehicle-card">
+                <img src="https://imgd.aeplcdn.com/370x208/n/cw/ec/141857/swift-exterior-right-front-three-quarter-2.jpeg" alt="Maruti Suzuki Swift">
+                <h3>Maruti Suzuki Swift</h3>
+                <p>Zippy hatchback for city drives</p>
+                <button>Book Now</button>
+            </div>
+            <div class="vehicle-card">
+                <img src="https://imgd.aeplcdn.com/370x208/n/cw/ec/54399/brezza-exterior-right-front-three-quarter-10.jpeg" alt="Maruti Suzuki Brezza">
+                <h3>Maruti Suzuki Brezza</h3>
+                <p>Compact SUV for urban adventures</p>
+                <button>Book Now</button>
+            </div>
+            <div class="vehicle-card">
+                <img src="https://imgd.aeplcdn.com/370x208/n/cw/ec/43496/ertiga-exterior-right-front-three-quarter-2.jpeg" alt="Maruti Suzuki Ertiga">
+                <h3>Maruti Suzuki Ertiga</h3>
+                <p>Spacious MPV for family trips</p>
+                <button>Book Now</button>
+            </div>
+            <div class="vehicle-card">
+                <img src="https://imgd.aeplcdn.com/370x208/n/cw/ec/141867/nexon-exterior-right-front-three-quarter-3.jpeg" alt="Tata Nexon">
+                <h3>Tata Nexon</h3>
+                <p>Versatile SUV with bold looks</p>
+                <button>Book Now</button>
+            </div>
+            <div class="vehicle-card">
+                <img src="https://imgd.aeplcdn.com/370x208/n/cw/ec/144999/punch-exterior-right-front-three-quarter-16.jpeg" alt="Tata Punch">
+                <h3>Tata Punch</h3>
+                <p>Compact SUV for city drives</p>
+                <button>Book Now</button>
+            </div>
+            <div class="vehicle-card">
+                <img src="https://imgd.aeplcdn.com/370x208/n/cw/ec/139739/safari-exterior-right-front-three-quarter-2.jpeg" alt="Tata Safari">
+                <h3>Tata Safari</h3>
+                <p>Premium SUV for long journeys</p>
+                <button>Book Now</button>
+            </div>
+            <div class="vehicle-card">
+                <img src="https://imgd.aeplcdn.com/370x208/n/cw/ec/135135/thar-exterior-right-front-three-quarter-14.jpeg" alt="Mahindra Thar">
+                <h3>Mahindra Thar</h3>
+                <p>Rugged SUV for off-road adventures</p>
+                <button>Book Now</button>
+            </div>
+            <div class="vehicle-card">
+                <img src="https://imgd.aeplcdn.com/370x208/n/cw/ec/141111/xuv700-exterior-right-front-three-quarter-12.jpeg" alt="Mahindra XUV700">
+                <h3>Mahindra XUV700</h3>
+                <p>Feature-packed SUV for all terrains</p>
+                <button>Book Now</button>
+            </div>
+            <div class="vehicle-card">
+                <img src="https://imgd.aeplcdn.com/370x208/n/cw/ec/49639/innova-crysta-exterior-right-front-three-quarter-11.jpeg" alt="Toyota Innova Crysta">
+                <h3>Toyota Innova Crysta</h3>
+                <p>Reliable MPV for family travel</p>
+                <button>Book Now</button>
+            </div>
+            <div class="vehicle-card">
+                <img src="https://imgd.aeplcdn.com/370x208/n/cw/ec/144095/fortuner-exterior-right-front-three-quarter-2.jpeg" alt="Toyota Fortuner">
+                <h3>Toyota Fortuner</h3>
+                <p>Powerful SUV for luxury and performance</p>
+                <button>Book Now</button>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
