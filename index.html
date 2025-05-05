@@ -53,8 +53,9 @@
         .vehicle-select {
             position: absolute;
             left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
+            transform: translateX(-50%);
+            top: 20px;
+            text-align: center;
         }
         .vehicle-select select {
             font-size: 20px;
@@ -68,6 +69,28 @@
         }
         .vehicle-select select:hover {
             background-color: #f0f0f0;
+        }
+        .vehicle-select img {
+            width: 280px;
+            height: auto;
+            margin-top: 25px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .vehicle-select .headline {
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #1976D2;
+            margin-top: 30px;
+            text-transform: uppercase;
+            line-height: 1.2;
+        }
+        .vehicle-select .headline span {
+            display: block;
         }
         .search-box {
             background-color: white;
@@ -237,6 +260,12 @@
             <option value="bike">Bike</option>
             <option value="scooty">Scooty</option>
         </select>
+        <img src="carKeyImage.jpg" alt="Vehicle Image">
+        <div class="headline">
+            <span>GET YOUR FAV KEYS</span>
+            <span>&</span>
+            <span>ENJOY THE RIDE</span>
+        </div>
     </div>
     <div class="quotes-section">
         <div class="headline">
